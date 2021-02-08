@@ -8,7 +8,7 @@ let cout = 0;
 let isStart = false;
 
 let timerCout = 5000;
-let startTime = Date.now();
+
 
 let results = [];
 
@@ -27,13 +27,12 @@ class List {
     }
 }
 
-let age = prompt("Сколько?");
-(age > 18) ? alert("FFFFFFFFFF") : alert("KL");
-
 function Start() {
     Click();
     !isStart ? Timer() : null;
     isStart = true;
+    button.innerHTML = "CLICK";
+    
 }
 
 function Click() {
@@ -42,6 +41,7 @@ function Click() {
 }
 let timerDisplay;
 function Timer() {
+    let startTime = Date.now();
     const interval = setInterval(() => {
         let time = Date.now() - startTime;
         timerDisplay = timerCout - time;
@@ -50,16 +50,8 @@ function Timer() {
             clearInterval(interval);
             FinishGame();
         }
-    }); 
-
-    // const timeout = setTimeout(() => {
-//             clearInterval(interval);
-//             clearTimeout(timeout)
-//             FinishGame();
-//     }, timerCout);   
+    });  
 }
-
-
 
 function FinishGame() {
     display.innerHTML = "GameOver";
@@ -75,17 +67,17 @@ function CreateList() {
     board.insertAdjacentHTML('beforeend', amount.getContainer());
 }
 
-// function Restart() {   
-//     setTimeout(() => {
-//         timerCout = 5000;
-//         timerDisplay = 5000;
-//         display.innerHTML = Format(timerDisplay);
-//         isStart = false;
-//         button.innerHTML = "RESTART";
-//         Start();
-//         button.disabled = false;
-//     }, 1000);
-// }
+function Restart() {   
+    setTimeout(() => {
+        button.innerHTML = "RESTART";
+        button.disabled = false;
+        isStart = false;
+        cout = 0;
+        timerCout = 5000;
+        counter.innerHTML = cout;
+        numberSheet++;
+    }, 1500);
+}
 
 function AutoClicker(event) {
     if (event.code == "KeyZ") {
