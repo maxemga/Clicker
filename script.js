@@ -1,7 +1,10 @@
 let button = document.getElementById("button");
 let counter = document.getElementById("counter");
 let display = document.getElementById("display");
-let board = document.getElementById("board");
+let board = document.getElementById("boardResults");
+let topBoard = document.getElementById("boardTopResults");
+let resultTopList = document.getElementById("rezultList");
+let h1 = document.querySelectorAll("h1");
 
 let numberSheet = 1;
 let cout = 0;
@@ -9,8 +12,8 @@ let isStart = false;
 
 let timerCout = 5000;
 
-
 let results = [];
+let topResults = [];
 
 counter.innerHTML = cout;
 document.addEventListener("keypress", AutoClicker); 
@@ -57,14 +60,21 @@ function FinishGame() {
     display.innerHTML = "GameOver";
     button.disabled = true;
     CreateList();
+    CreateTopList();
     Restart();
 }
 
 function CreateList() {
     let amount = new List(cout);
-    results.push(amount);
-    console.log(results);
+    results.push(amount.cout);
     board.insertAdjacentHTML('beforeend', amount.getContainer());
+}
+
+function CreateTopList() {
+    resultTopList.innerHTML = null;
+    for (let i = 0; i < results.length; i++) {    
+        resultTopList.insertAdjacentHTML('beforeend', `<p id="test"> ${i+1}. ${results.sort((a, b) => b - a)[i]} </p>`); 
+    }
 }
 
 function Restart() {   

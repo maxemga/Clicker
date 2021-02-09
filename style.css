@@ -41,23 +41,45 @@ p {
 }
 
 
-.board {
+.boardResults {
     overflow: hidden;
     position: absolute;
     right: 0;
     top: 0;
-    height: 950px;
+    height: 50%;
     width: 500px;
 }
 
-.board h1 {
+.boardResults h1 {
     font-family: "font";
     font-size: 40px;
     color: white;
     margin-top: 20px;
 }
 
-.board p {
+.boardResults p {
+    font-size: 25px;
+    color: #F0F0F0;
+    margin-top: 5px;
+}
+
+.boardTopResults {
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    height: 50%;
+    width: 500px;
+}
+
+.boardTopResults h1 {
+    font-family: "font";
+    font-size: 40px;
+    color: white;
+    margin-top: 20px;
+}
+
+.boardTopResults p {
     font-size: 25px;
     color: #F0F0F0;
     margin-top: 5px;
